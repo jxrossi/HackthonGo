@@ -1,9 +1,11 @@
 package internal
 
 type Service interface {
-	StoreCustomers(table string, data interface{}) error
+	Store(table string, data interface{}) error
 	ExistsCustomers() bool
 	ExistsProducts() bool
+	ExistsInvoices() bool
+	ExistsSales() bool
 }
 
 type service struct {
@@ -14,12 +16,8 @@ func NewService(repo Repository) Service {
 	return &service{repository: repo}
 }
 
-func (s *service) StoreCustomers(table string, data interface{}) error {
-	err := s.repository.StoreCustomers(table, data); if err != nil {
-		return err
-	}
-
-	return nil
+func (s *service) Store(table string, data interface{}) error {
+	return s.repository.Store(table, data)
 }
 
 func (s *service) ExistsCustomers() bool {
@@ -28,6 +26,14 @@ func (s *service) ExistsCustomers() bool {
 
 func (s *service) ExistsProducts() bool {
 	return s.repository.ExistsProducts()
+}
+
+func (s *service) ExistsInvoices() bool {
+	return s.repository.ExistsInvoices()
+}
+
+func (s *service) ExistsSales() bool {
+	return s.repository.ExistsSales()
 }
 
 

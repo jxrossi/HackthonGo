@@ -8,21 +8,21 @@ type Customers struct {
 }
 
 type Products struct {
-	ID       			int64    		`json:"id"`
+	ID       			int    			`json:"id"`
 	Description 		string 			`json:"description"`
 	Price   			float64 		`json:"price"`
 }
 
 type Invoices struct {
-	ID       			int64    		`json:"id"`
+	ID       			int  			`json:"id"`
 	DateTime			string 			`json:"datetime"`
-	IDCustomer    		int64 			`json:"id_customer"`
+	IDCustomer    		int 			`json:"id_customer"`
 	Total 				float64 		`json:"total"`
 }
 
 type Sales struct {
-	ID 				int64 			`json:"id"`
-	IDInvoice 		int64 			`json:"id_invoice"`
-	IDProduct 		int64 			`json:"id_product"`
+	ID 				int 			`json:"id"`
+	IDInvoice 		int 			`json:"id_invoice"`
+	IDProduct 		int 			`json:"id_product"`
 	Quantity 		float64 		`json:"quantity"`
 }

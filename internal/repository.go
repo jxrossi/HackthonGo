@@ -37,9 +37,10 @@ const (
 						 INNER JOIN customers c ON i.id_customer = c.id
 						 GROUP BY c.condicion`
 
-	QUERY_ENUNCIADO_2 = `SELECT p.description, s.quantity AS total FROM sales s
+	QUERY_ENUNCIADO_2 = `SELECT p.description, ROUND(SUM(s.quantity), 2) AS total FROM sales s
 						 INNER JOIN products p ON s.id_product = p.id
-						 ORDER BY s.quantity DESC 
+						 GROUP BY p.description
+						 ORDER BY total DESC
 						 LIMIT 5;`
 
 	QUERY_ENUNCIADO_3 = `SELECT c.last_name, c.first_name FROM customers c

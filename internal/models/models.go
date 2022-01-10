@@ -26,3 +26,18 @@ type Sales struct {
 	IDProduct 		int 			`json:"id_product"`
 	Quantity 		float64 		`json:"quantity"`
 }
+
+type Enunciado1 struct {
+	Condition 		string 			`json:"condition"`
+    Total 			float64 		`json:"total"`
+}
+
+type Enunciado2 struct {
+	Description 	string 			`json:"description"`
+	Total 			float64 		`json:"total"`
+}
+
+type Enunciado3 struct {
+	LastName 		string 			`json:"last_name"`
+	FirstName 		string 			`json:"first_name"`
+}

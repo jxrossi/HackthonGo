@@ -160,7 +160,7 @@ func InsertTotalInvoices(service internal.Service) string {
 			}
 			return "Stored Invoice totals fields successfully"
 		}
-		return "Sales table is empty or there is , try populating it and try again"
+		return "Sales table is empty, try populating it and try again"
 	}
 	return "Totals from Invoices already calculated"
 	

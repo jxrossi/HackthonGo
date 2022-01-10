@@ -135,7 +135,6 @@ func (repo *repository) Store(table string, data interface{}) error {
 			}
 			return nil
 
-
 		default:
 			return errors.New("wrong table name")
 	}
@@ -281,26 +280,3 @@ func (repo *repository) Enunciado3() ([]models.Enunciado3, error) {
 
 	return enuns, nil
 }
-
-/*
-
-Query consigna 1:
-
-SELECT ROUND(SUM(s.quantity * p.price), 2) AS total, c.condicion FROM invoices i
-INNER JOIN sales s ON i.id = s.id_invoice
-inner join products p on s.id_product = p.id
-INNER JOIN customers c ON i.id_customer = c.id
-GROUP BY c.condicion;
-
-Consigna 2:
-SELECT p.description FROM sales s
-INNER JOIN products p ON s.id_product = p.id
-ORDER BY s.quantity DESC LIMIT 5;
-
-Consigna 3:
-SELECT c.last_name, c.first_name FROM customers c
-INNER JOIN invoices i ON c.id = i.id_customer
-INNER JOIN sales s ON i.id = s.id_invoice
-INNER JOIN products p ON s.id_product = p.id ORDER BY p.price, c.last_name LIMIT 5;
-
-*/

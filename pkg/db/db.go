@@ -10,6 +10,7 @@ import (
 
 var (
 	StorageDB *sql.DB
+	err error
 )
 
 func init() {
@@ -17,7 +18,6 @@ func init() {
 
 	dataSource := os.ExpandEnv("${U}:${PW}@tcp(localhost:3306)/${DB_NAME}")
 	
-	var err error
 	StorageDB, err = sql.Open("mysql", dataSource); if err != nil {
 		panic(err)
 	}

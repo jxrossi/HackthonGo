@@ -62,4 +62,3 @@ func (s *service) Enunciado2() ([]models.Enunciado2, error) {
 func (s *service) Enunciado3() ([]models.Enunciado3, error) {
 	return s.repository.Enunciado3()
 }
-

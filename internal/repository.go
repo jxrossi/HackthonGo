@@ -188,9 +188,9 @@ func (repo *repository) ExistsTotalsInvoices() bool {
 
 func (repo *repository) StoreTotalInvoices(id int) error {
 	db := db.StorageDB
-	var aaa float64
+	var total_invoice float64
 
-	err := db.QueryRow(QUERY_GET_TOTAL_INVOICES, id).Scan(&aaa)
+	err := db.QueryRow(QUERY_GET_TOTAL_INVOICES, id).Scan(&total_invoice)
 	if err != nil || err == sql.ErrNoRows {
 		return err
 	}
@@ -199,7 +199,7 @@ func (repo *repository) StoreTotalInvoices(id int) error {
 		return err
 	}
 
-	_, err = stmt.Exec(aaa, id); if err != nil {
+	_, err = stmt.Exec(total_invoice, id); if err != nil {
 		return err
 	}
 

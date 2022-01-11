@@ -4,13 +4,13 @@ import (
 	internal "HacktonGo/internal"
 	data "HacktonGo/pkg/data_handler"
 	db "HacktonGo/pkg/db"
+	_ "github.com/go-sql-driver/mysql"
 	"encoding/json"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"log"
 )
 
-func main() {
+func main() {	
 	db := db.StorageDB
 
 	repo := internal.NewRepository(db)
@@ -30,18 +30,18 @@ func main() {
 	//first exercise
 	log.Println("First Exercise")
 	dataBytes1, _ := service.Enunciado1()
-	dataJson1, _ := json.MarshalIndent(dataBytes1, "", "   ")
+	dataJson1, _ := json.MarshalIndent(dataBytes1, "", "    ")
 	fmt.Println(string(dataJson1))
 
 	//second exercise
 	log.Println("Second Exercise")
 	dataBytes2, _ := service.Enunciado2()
-	dataJson2, _ := json.MarshalIndent(dataBytes2, "", "   ")
+	dataJson2, _ := json.MarshalIndent(dataBytes2, "", "    ")
 	fmt.Println(string(dataJson2))
 
 	//third exercise
 	log.Println("Third Exercise")
 	dataBytes3, _ := service.Enunciado3()
-	dataJson3, _ := json.MarshalIndent(dataBytes3, "", "   ")
+	dataJson3, _ := json.MarshalIndent(dataBytes3, "", "    ")
 	fmt.Println(string(dataJson3))
 }
